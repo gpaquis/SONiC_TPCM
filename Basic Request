@@ -1,11 +1,12 @@
- curl -k -u "admin:YourPaSsWoRd" -X POST "https://192.168.1.100/restconf/operations/openconfig-tpcm:tpcm-list" -H "accept: application/yanf-data+json" -H "Content-Type: application/yang-data+json" -d "{ \"openconfig-tpcm:tpcm-list\" : [{\"vrf-name\":\"1\"}]}"
+Basic Request based on curl
 
- curl -X POST "https://192.168.1.100/restconf/operations/openconfig-tpcm:tpcm-uninstall" -H "accept: application/yang-data+json" -H "Authorization: Basic YWRtaW46WW91clBhU3NXb1Jk" -H "Content-Type: application/yang-data+json" -d "{\"openconfig-tpcm:input\":{\"clean-data\":\"yes\",\"docker-name\":\"fail2ban\"}}"
- curl -X POST "https://192.168.1.100/restconf/operations/openconfig-tpcm:tpcm-install" -H "accept: application/yang-data+json" -H "Authorization: Basic YWRtaW46WW91clBhU3NXb1Jk" -H "Content-Type: application/yang-data+json" -d "{\"openconfig-tpcm:input\":{\"docker-name\":\"fail2ban\",\"image-source\":\"pull\",\"image-name\":\"linuxserver/fail2ban:latest\",\"args\":\"-v /var/log:/var/log:ro --net=host --cap-add=NET_ADMIN --cap-add=NET_RAW -e PUID=1000\"}}"
+curl -k -u "admin:YourPaSsWoRd" -X POST "https://192.168.1.100/restconf/operations/openconfig-tpcm:tpcm-list" -H "accept: application/yanf-data+json" -H "Content-Type: application/yang-data+json" -d "{ \"openconfig-tpcm:tpcm-list\" : [{\"vrf-name\":\"1\"}]}"
+curl -X POST "https://192.168.1.100/restconf/operations/openconfig-tpcm:tpcm-uninstall" -H "accept: application/yang-data+json" -H "Authorization: Basic YWRtaW46WW91clBhU3NXb1Jk" -H "Content-Type: application/yang-data+json" -d "{\"openconfig-tpcm:input\":{\"clean-data\":\"yes\",\"docker-name\":\"fail2ban\"}}"
+curl -X POST "https://192.168.1.100/restconf/operations/openconfig-tpcm:tpcm-install" -H "accept: application/yang-data+json" -H "Authorization: Basic YWRtaW46WW91clBhU3NXb1Jk" -H "Content-Type: application/yang-data+json" -d "{\"openconfig-tpcm:input\":{\"docker-name\":\"fail2ban\",\"image-source\":\"pull\",\"image-name\":\"linuxserver/fail2ban:latest\",\"args\":\"-v /var/log:/var/log:ro --net=host --cap-add=NET_ADMIN --cap-add=NET_RAW -e PUID=1000\"}}"
  
  
- 
-Model Based REST_API 
+----------------------------------------------------------------------- 
+Model Based REST_API for tpcm-install
  {
   "openconfig-tpcm:input": {
     "docker-name": "string",
@@ -20,11 +21,11 @@ Model Based REST_API
     "start-after-system-ready": "string"
   }
 }
- 
+----------------------------------------------------------------------- 
 Local Manual install on SONiC
-sudo tpcm install name fail2ban pull linuxserver/fail2ban args "-v /var/log:/var/log:ro \ --net=host \ --cap-add=NET_ADMIN \ --cap-add=NET_RAW \ -e PUID=1000"
-
-Schema used via RESTAPI
+sudo tpcm install name docker-name image-source image-name args
+-----------------------------------------------------------------------
+Schema used via RESTAPI to deploy Fail2ban
 {
   "openconfig-tpcm:input": {
     "docker-name": "fail2ban",
@@ -34,14 +35,15 @@ Schema used via RESTAPI
   }
 } 
 
-Suppression du TPCM
+-----------------------------------------------------------------------
+Schema to remove TPCM, tpcm-uninstall
 {
   "openconfig-tpcm:input": {
     "clean-data": "yes",
     "docker-name": "fail2ban"
   }
 }
-
+----------------------------------------------------------------------
 List du TPCM
 {
   "openconfig-tpcm:input": {
