@@ -45,6 +45,6 @@ Suppression du TPCM
 List du TPCM
 {
   "openconfig-tpcm:input": {
-  
+    "vrf-name": "string"
   }
 }
