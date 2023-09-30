@@ -1,7 +1,7 @@
 # SONiC_TPCM
 
-This Script permit to deploy a TPCM remotely on a Dell Enterprise SONiC device
-By using REST API, you can install, list, remove or update a TPCM 
+This Script permit only to deploy a TPCM remotely on a Dell Enterprise SONiC device.
+By using REST API, you can also install, list, remove or update a TPCM 
 
 ## Running Python Code
 remote_tpcm_py is the master script
