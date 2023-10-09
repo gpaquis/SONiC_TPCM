@@ -3,9 +3,18 @@ import argparse
 import ast
 import requests
 import configparser
+import ipaddress
 from requests.exceptions import HTTPError
 from requests.auth import HTTPBasicAuth
 import base64
+
+def validate_ip_address(ip_string) -> bool:
+    try:
+      ip_object = ipaddress.ip_address(ip_string)
+      return True
+    except ValueError:
+      return False
+
 
 def tpcm_list(switch_ip: str, user_name: str, password: str) -> str:
     """
@@ -82,11 +91,11 @@ def tpcm_install(switch_ip: str, user_name: str, password: str) -> str:
         Read from a config file, here the container install from DockerHUB
         [TPCM1]
         docker-name = "str",
-        image-source = "str", 
+        image-source = "str",
         image-name = "str/str:str",
         args = "str"
 
-        Image-source must be set with "pull" if container is locate on the dockerhub, otherwise use http/https/usb/sftp/ssh 
+        Image-source must be set with "pull" if container is locate on the dockerhub, otherwise use http/https/usb/sftp/ssh
     """
 
     config = configparser.ConfigParser()
@@ -138,22 +147,26 @@ def main():
 
     switch_ip = args.switch_ip
 
-    sonic_username = args.sonic_username
-    sonic_password = args.sonic_password
+    if validate_ip_address(switch_ip) == True:
 
-    if action == "List":
+       sonic_username = args.sonic_username
+       sonic_password = args.sonic_password
+
+       if action == "List":
         result = tpcm_list(switch_ip=switch_ip, user_name=sonic_username, password=sonic_password)
         print(f'{result}')
 
 
-    if action == "Install":
+       if action == "Install":
         result = tpcm_install(switch_ip=switch_ip, user_name=sonic_username, password=sonic_password)
         print(f'{result}')
 
-    if action == "Remove":
+       if action == "Remove":
         result = tpcm_remove(switch_ip=switch_ip, user_name=sonic_username, password=sonic_password)
         print(f'{result}')
 
+    else:
+      print("IP address is not valid\r\nUse tpcm_remote.py -h for Help")
 
 
 if __name__ == '__main__':
