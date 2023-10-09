@@ -8,7 +8,7 @@ This script permit to list, deploy, remove a TPCM.
 ## Running Python script
 remote_tpcm.py is the master script
 
-**usage:** 
+**usage:**.
   `python3 remote_tpcm.py --action [List|Install|Remove] --switch_ip 192.168.101.101 --sonic_username admin --sonic_password YourPaSsWoRd`
   
 
