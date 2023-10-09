@@ -1,8 +1,8 @@
 # SONiC_TPCM
 
->[!NOTE] This Script is for test purposed only.
+>[!WARNING] This Script is for test purposed only.
 
-The remote-tpmc is a proof script to remotely manipulate the TPCM REST-API on a Dell Enterprise SONiC device
+The remote-tpmc is a proof script to remotely manipulate the TPCM REST-API on a Dell Enterprise SONiC device.
 This script permit to list, deploy, remove a TPCM.
 
 ## Running Python script
