@@ -1,6 +1,6 @@
 # SONiC_TPCM
 
-### This Script is for test purposed only.
+>[!NOTE] This Script is for test purposed only.
 
 The remote-tpmc is a proof script to remotely manipulate the TPCM REST-API on a Dell Enterprise SONiC device
 This script permit to list, deploy, remove a TPCM.
@@ -14,9 +14,4 @@ remote_tpcm.py is the master script
 
 ## Config File
 The config file **remote_tpcm.conf** contain all parameters to deploy the container require
-the structure of the the file is :
-`[TPCM1]
-docker-name = container name
-image-source = source location (http/https/ssh/sftp) for docker hub use *pull*
-image-name = remote/name:version
-args = arguments`
+the structure of the config file is define in the remote_tpcm.conf
