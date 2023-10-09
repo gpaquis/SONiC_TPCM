@@ -68,8 +68,7 @@ def tpcm_install(switch_ip: str, user_name: str, password: str) -> str:
 
     print(json.dumps(request_data))
     try:
-       response = requests.post(url=f"https://{switch_ip}/restconf/operations/openconfig-tpcm:tpcm-instal
-l",
+       response = requests.post(url=f"https://{switch_ip}/restconf/operations/openconfig-tpcm:tpcm-install",
 				data=json.dumps(request_data),
 				headers={'Content-Type': 'application/yang-data+json'},
 				auth=HTTPBasicAuth(f"{user_name}", f"{password}"),
