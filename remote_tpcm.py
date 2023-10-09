@@ -19,7 +19,7 @@ def tpcm_list(switch_ip: str, user_name: str, password: str) -> str:
         }
     }
 
-   # print(json.dumps(request_data))
+    print(json.dumps(request_data))
     try:
        response = requests.post(url=f"https://{switch_ip}/restconf/operations/openconfig-tpcm:tpcm-list",
                                 data=json.dumps(request_data),
