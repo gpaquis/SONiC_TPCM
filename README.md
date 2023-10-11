@@ -35,8 +35,8 @@ TPCM support deployment via HTTP/HTTPS/SFTP/SSH/USB, but this script don't suppo
 
 | Options         | Value       | Description                                 | Mandatory |
 |-----------------|-------------|---------------------------------------------|-----------|
-|--action         | List        | List TPCM install on DES                    |    Yes    |
-|                 | Install     | Install TPCM on DES                         |           |
+|                 | List        | List TPCM install on DES                    |           |
+|--action         | Install     | Install TPCM on DES                         |   Yes     |
 |                 | Remove      | Remove TPCM from DES                        |           |
 |--switch_ip      | IPV4        | IP address of the DES management interface  |   Yes     |
 |--sonic_username | type string | Login used to access to the DES             |   Yes     |
