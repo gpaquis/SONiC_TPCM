@@ -47,6 +47,5 @@ Schema to remove TPCM, tpcm-uninstall
 List du TPCM
 {
   "openconfig-tpcm:input": {
-    "vrf-name": "string"
   }
 }
