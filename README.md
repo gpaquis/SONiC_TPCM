@@ -47,6 +47,7 @@ TPCM support deployment via HTTP/HTTPS/SFTP/SSH/USB, but this script don't suppo
 
 ## 📅 Roadmap
 Add support for http/https/ssh/scp
+Allow to deploy more than one container at same time
 
 
 ## 👏 How to Contribute
