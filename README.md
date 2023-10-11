@@ -20,7 +20,7 @@ This Repo contain a Python script for manipulate remotly TPCM (ThirdPartyContain
 ## 🚀 Description and Objective
 
 The remote_tpcm script permit to deploy, remove and list container install on a Dell Enterprise SONiC.
-This script is for purpose test only and explain howto deploy a container remotely from a DockerHub Source.
+This script is for purpose test only and explain howto deploy a container from a DockerHub Source remotly.
 
 ## 📋 Requirements
 - Python 3.8.10 version minimum 
@@ -32,16 +32,21 @@ The remote_tpcm.conf(https://github.com/gpaquis/SONiC_TPCM/blob/main/src/remote_
 TPCM support deployment via HTTP/HTTPS/SFTP/SSH/USB, but this script don't support this deployment methode. See [Roadmap](#Roadmap) for more details and next feature.
 
 **Runing the script and options:**
-------------------
-|--action | List | List TPCM install on DES
+
+| Options         | Value       | Description                                 | Mandatory |
+|-----------------|-------------|---------------------------------------------|-----------|
+|--action         | List        | List TPCM install on DES                    |    Yes    |
+|                 | Install     | Install TPCM on DES                         |           |
+|                 | Remove      | Remove TPCM from DES                        |           |
+|--switch_ip      | IPV4        | IP address of the DES management interface  |   Yes     |
+|--sonic_username | type string | Login used to access to the DES             |   Yes     |
+|--sonic_password | type string | Password used to access to the DES          |   Yes     |
+
 
   `python3 remote_tpcm.py --action [List|Install|Remove] --switch_ip 192.168.101.101 --sonic_username admin --sonic_password YourPaSsWoRd`
-  
 
-## Config File
-The config file **remote_tpcm.conf** contain all parameters to deploy the container require.
-The structure of the config file is define in the remote_tpcm.conf
-
+## Roadmap
+Add support for http/https/ssh/scp
 
 
 ## 👏 How to Contribute
