@@ -41,3 +41,8 @@ TPCM support deployment via HTTP/HTTPS/SFTP/SSH/USB, but this script don't suppo
 ## Config File
 The config file **remote_tpcm.conf** contain all parameters to deploy the container require.
 The structure of the config file is define in the remote_tpcm.conf
+
+
+
+## 👏 How to Contribute
+We welcome contributions to the project.
