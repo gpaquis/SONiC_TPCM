@@ -1,14 +1,39 @@
-# SONiC_TPCM
+# Remote TPCM tools for Dell Enterprise SONiC
 
->[!WARNING] This Script is for test purposed only.
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)](#-how-to-contribute)
+[![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://github.com/gpaquis/SONiC_TPCM/blob/main/License.md)
+[![GitHub issues](https://img.shields.io/github/issues/gpaquis/SONIC_TPCM)](https://github.com/gpaquis/SONiC_TPCM/issues)
 
-The remote-tpmc is a proof script to remotely manipulate the TPCM REST-API on a Dell Enterprise SONiC device.
-This script permit to list, deploy, remove a TPCM.
+Built and maintained by [Gerald PAQUIS](https://github.com/gpaquis) and [Contributors](https://github.com/gpaquis/SONiC_TPCM/graphs/contributors)
 
-## Running Python script
-remote_tpcm.py is the master script
+--------------------
+This Repo contain a Python script for manipulate remotly TPCM (ThirdPartyContainerManager) by using REST-API, and a config file
 
-**usage:**
+## Contents
+
+- [Description and Objective](#-description-and-objective)
+- [Requirements](#-requirements)
+- [Usage and Configuration]
+- [Roadmap]
+- [How to Contribute](#-how-to-contribute)
+
+## 🚀 Description and Objective
+
+The remote_tpcm script permit to deploy, remove and list container install on a Dell Enterprise SONiC.
+This script is for purpose test only and explain howto deploy a container remotely from a DockerHub Source.
+
+## 📋 Requirements
+- Python 3.8.10 version minimum 
+
+## Usage and Configuration
+Before start, the remote_tpcm.conf must be configure. The config file must be in the same repository as remote_tpcm.py
+The remote_tpcm.conf(https://github.com/gpaquis/SONiC_TPCM/blob/main/src/remote_tpcm.conf) contain entry to deploy the container from DockerHub.
+
+TPCM support deployment via HTTP/HTTPS/SFTP/SSH/USB, but this script don't support this deployment methode. See [Roadmap](#Roadmap) for more details and next feature.
+
+**Runing the script and options:**
+------------------
+|--action | List | List TPCM install on DES
 
   `python3 remote_tpcm.py --action [List|Install|Remove] --switch_ip 192.168.101.101 --sonic_username admin --sonic_password YourPaSsWoRd`
   
