@@ -25,7 +25,7 @@ This script is for purpose test only and explain howto deploy a container from a
 ## 📋 Requirements
 - Python 3.8.10 version minimum 
 
-## Usage and Configuration
+## 🏁 Usage and Configuration
 Before start, the remote_tpcm.conf must be configure. The config file must be in the same repository as remote_tpcm.py
 The remote_tpcm.conf(https://github.com/gpaquis/SONiC_TPCM/blob/main/src/remote_tpcm.conf) contain entry to deploy the container from DockerHub.
 
@@ -45,7 +45,7 @@ TPCM support deployment via HTTP/HTTPS/SFTP/SSH/USB, but this script don't suppo
 
   `python3 remote_tpcm.py --action [List|Install|Remove] --switch_ip 192.168.101.101 --sonic_username admin --sonic_password YourPaSsWoRd`
 
-## Roadmap
+## 📅 Roadmap
 Add support for http/https/ssh/scp
 
 
