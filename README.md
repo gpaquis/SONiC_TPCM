@@ -14,5 +14,5 @@ remote_tpcm.py is the master script
   
 
 ## Config File
-The config file **remote_tpcm.conf** contain all parameters to deploy the container require
-the structure of the config file is define in the remote_tpcm.conf
+The config file **remote_tpcm.conf** contain all parameters to deploy the container require.
+The structure of the config file is define in the remote_tpcm.conf
