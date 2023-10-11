@@ -1,15 +1,15 @@
-### Changelog
+# Changelog
 
 ## v1.0
-# Added
+### Added
 Add function to remove a TPCM
-# Changed
+### Changed
 Remove all "warning" and debug messages
 
 ## v0.5
-# Added
+### Added
 Add function to list all TPCM
 
 ## v0.1
-# Added
+### Added
 Initial release allow to deploy remotly a TPCM by using RESTAPI request.
