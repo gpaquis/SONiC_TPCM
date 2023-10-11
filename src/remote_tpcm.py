@@ -7,6 +7,9 @@ import ipaddress
 from requests.exceptions import HTTPError
 from requests.auth import HTTPBasicAuth
 import base64
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 
 def validate_ip_address(ip_string) -> bool:
     try:
@@ -28,7 +31,7 @@ def tpcm_list(switch_ip: str, user_name: str, password: str) -> str:
         }
     }
 
-    print(json.dumps(request_data))
+    #print(json.dumps(request_data))
     try:
        response = requests.post(url=f"https://{switch_ip}/restconf/operations/openconfig-tpcm:tpcm-list",
                                 data=json.dumps(request_data),
@@ -43,9 +46,8 @@ def tpcm_list(switch_ip: str, user_name: str, password: str) -> str:
     except Exception as err:
         print(f'Other error occurred: {err}')
     else:
-        print(f'{response}')
-
-    return response.content
+        #print(f'{response}')
+        return response.content
 
 def tpcm_remove(switch_ip: str, user_name: str, password: str) -> str:
     """
@@ -65,7 +67,7 @@ def tpcm_remove(switch_ip: str, user_name: str, password: str) -> str:
         }
     }
 
-    print(json.dumps(request_data))
+    #print(json.dumps(request_data))
     try:
        response = requests.post(url=f"https://{switch_ip}/restconf/operations/openconfig-tpcm:tpcm-uninstall",
                                 data=json.dumps(request_data),
@@ -80,9 +82,8 @@ def tpcm_remove(switch_ip: str, user_name: str, password: str) -> str:
     except Exception as err:
         print(f'Other error occurred: {err}')
     else:
-        print(f'{response}')
-
-    return response.content
+        #print(f'{response}')
+        return response.content
 
 
 def tpcm_install(switch_ip: str, user_name: str, password: str) -> str:
@@ -115,7 +116,7 @@ def tpcm_install(switch_ip: str, user_name: str, password: str) -> str:
         }
     }
 
-    print(json.dumps(request_data))
+    #print(json.dumps(request_data))
     try:
        response = requests.post(url=f"https://{switch_ip}/restconf/operations/openconfig-tpcm:tpcm-install",
                                 data=json.dumps(request_data),
@@ -130,9 +131,8 @@ def tpcm_install(switch_ip: str, user_name: str, password: str) -> str:
     except Exception as err:
         print(f'Other error occurred: {err}')
     else:
-        print(f'{response}')
-
-    return response.content
+        #print(f'{response}')
+        return response.content
 
 
 def main():
@@ -155,7 +155,6 @@ def main():
        if action == "List":
         result = tpcm_list(switch_ip=switch_ip, user_name=sonic_username, password=sonic_password)
         print(f'{result}')
-
 
        if action == "Install":
         result = tpcm_install(switch_ip=switch_ip, user_name=sonic_username, password=sonic_password)
