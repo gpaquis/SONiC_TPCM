@@ -19,17 +19,19 @@ This Repo contains a Python script for manipulate remotly TPCM (ThirdPartyContai
 
 ## 🚀 Description and Objective
 
-The remote_tpcm script allow to deploy, remove and list container install on a Dell Enterprise SONiC.
-This script is for purpose test only and explain howto deploy a container from a DockerHub Source remotly.
+The remote_tpcm script allow to deploy, remove and list container install on a Dell Enterprise SONiC. <br />
+This script is for purpose test only and explain howto deploy remotely, a container from a DockerHub Source.
 
 ## 📋 Requirements
 - Python 3.8.10 version minimum 
 
 ## 🏁 Usage and Configuration
-Before start, the remote_tpcm.conf must be configure. The config file must be in the same repository as remote_tpcm.py
+Before start, the remote_tpcm.conf must be configure. <br />
+The config file must be in the same repository as remote_tpcm.py <br />
 The remote_tpcm.conf(https://github.com/gpaquis/SONiC_TPCM/blob/main/src/remote_tpcm.conf) contain entry to deploy the container from DockerHub.
 
-TPCM support deployment via HTTP/HTTPS/SFTP/SSH/USB, but this script don't support this deployment methode. See [Roadmap](#Roadmap) for more details and next feature.
+TPCM support deployment via HTTP/HTTPS/SFTP/SSH/USB, but this script don't support this deployment methode.<br />
+See [Roadmap](#Roadmap) for more details and next feature.
 
 **Runing the script and options:**
 
@@ -46,8 +48,8 @@ TPCM support deployment via HTTP/HTTPS/SFTP/SSH/USB, but this script don't suppo
   `python3 remote_tpcm.py --action [List|Install|Remove] --switch_ip 192.168.101.101 --sonic_username admin --sonic_password YourPaSsWoRd`
 
 ## 📅 Roadmap
-Add support for http/https/ssh/scp.
-Allow to deploy more than one container at same time.
+Add support for http/https/ssh/scp. <br />
+Allow to deploy more than one container at same time. <br />
 
 
 ## 👏 How to Contribute
