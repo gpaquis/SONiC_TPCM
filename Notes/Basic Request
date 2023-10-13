@@ -1,10 +1,4 @@
-Basic Request based on curl
-
-curl -k -u "admin:YourPaSsWoRd" -X POST "https://192.168.1.100/restconf/operations/openconfig-tpcm:tpcm-list" -H "accept: application/yanf-data+json" -H "Content-Type: application/yang-data+json" -d "{ \"openconfig-tpcm:tpcm-list\" : [{\"vrf-name\":\"1\"}]}"
-curl -X POST "https://192.168.1.100/restconf/operations/openconfig-tpcm:tpcm-uninstall" -H "accept: application/yang-data+json" -H "Authorization: Basic YWRtaW46WW91clBhU3NXb1Jk" -H "Content-Type: application/yang-data+json" -d "{\"openconfig-tpcm:input\":{\"clean-data\":\"yes\",\"docker-name\":\"fail2ban\"}}"
-curl -X POST "https://192.168.1.100/restconf/operations/openconfig-tpcm:tpcm-install" -H "accept: application/yang-data+json" -H "Authorization: Basic YWRtaW46WW91clBhU3NXb1Jk" -H "Content-Type: application/yang-data+json" -d "{\"openconfig-tpcm:input\":{\"docker-name\":\"fail2ban\",\"image-source\":\"pull\",\"image-name\":\"linuxserver/fail2ban:latest\",\"args\":\"-v /var/log:/var/log:ro --net=host --cap-add=NET_ADMIN --cap-add=NET_RAW -e PUID=1000\"}}"
- 
- 
+REST-API schema 
 ----------------------------------------------------------------------- 
 Model Based REST_API for tpcm-install
  {
@@ -21,6 +15,50 @@ Model Based REST_API for tpcm-install
     "start-after-system-ready": "string"
   }
 }
+-----------------------------------------------------------------------
+Model Based REST_API for Uninstall
+{
+  "openconfig-tpcm:input": {
+    "clean-data": "string",
+    "docker-name": "string"
+  }
+}
+
+-----------------------------------------------------------------------
+Model Based REST_API for Upgarde (upgrade image)
+{
+  "openconfig-tpcm:input": {
+    "docker-name": "string",
+    "image-source": "string",
+    "image-name": "string",
+    "remote-server": "string",
+    "username": "string",
+    "password": "string",
+    "skip-data-migration": "string",
+    "args": "string",
+    "cargs": "string"
+  }
+}
+-----------------------------------------------------------------------
+Model Based REST_API for Update (update Mem/Storage Space)
+{
+  "openconfig-tpcm:input": {
+    "disk-limit": "string",
+    "docker-name": "string",
+    "vrf-name": "string",
+    "mem-limit": "string",
+    "start-after-system-ready": "string"
+  }
+}
+----------------------------------------------------------------------
+List du TPCM
+{
+  "openconfig-tpcm:input": {
+  "vrf-name: "string"
+  }
+}
+
+
 ----------------------------------------------------------------------- 
 Local Manual install on SONiC
 sudo tpcm install name docker-name image-source image-name args
@@ -44,8 +82,3 @@ Schema to remove TPCM, tpcm-uninstall
   }
 }
 ----------------------------------------------------------------------
-List du TPCM
-{
-  "openconfig-tpcm:input": {
-  }
-}
