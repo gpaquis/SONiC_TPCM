@@ -40,15 +40,15 @@ See [Roadmap](#Roadmap) for more details and next feature.
 |                 | List        | List TPCM install on DES                    |           |
 |--action         | Install     | Install TPCM on DES                         |   Yes     |
 |                 | Remove      | Remove TPCM from DES                        |           |
+|                 | Upgrade     | Upgrade TPCM                                |           |
 |--switch_ip      | IPV4        | IP address of the DES management interface  |   Yes     |
 |--sonic_username | type string | Login used to access to the DES             |   Yes     |
 |--sonic_password | type string | Password used to access to the DES          |   Yes     |
 
 
-  `python3 remote_tpcm.py --action [List|Install|Remove] --switch_ip 192.168.101.101 --sonic_username admin --sonic_password YourPaSsWoRd`
+  `python3 remote_tpcm.py --action [List|Install|Remove|Uprade] --switch_ip 192.168.101.101 --sonic_username admin --sonic_password YourPaSsWoRd`
 
 ## 📅 Roadmap
-Add Upgrade process.<br />
 Add Update process for memory/storage assing to the TPCM <br />
 Add support for http/https/ssh/scp. <br />
 Allow to deploy more than one container at same time. <br />
