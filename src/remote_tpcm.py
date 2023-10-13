@@ -136,7 +136,7 @@ def tpcm_install(switch_ip: str, user_name: str, password: str) -> str:
 
 def tpcm_upgrade(switch_ip: str, user_name: str, password: str) -> str:
     """
-        Install TPCM
+        Upgrade TPCM
         Read from a config file, here the container install from DockerHUB
         [TPCM1]
         docker-name = "str",
