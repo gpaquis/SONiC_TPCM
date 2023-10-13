@@ -48,6 +48,8 @@ See [Roadmap](#Roadmap) for more details and next feature.
   `python3 remote_tpcm.py --action [List|Install|Remove] --switch_ip 192.168.101.101 --sonic_username admin --sonic_password YourPaSsWoRd`
 
 ## 📅 Roadmap
+Add Upgrade process.<br />
+Add Update process for memory/storage assing to the TPCM <br />
 Add support for http/https/ssh/scp. <br />
 Allow to deploy more than one container at same time. <br />
 
