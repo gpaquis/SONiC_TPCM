@@ -13,8 +13,8 @@ This Repo contains a Python script for manipulate remotly TPCM (ThirdPartyContai
 
 - [Description and Objective](#-description-and-objective)
 - [Requirements](#-requirements)
-- [Usage and Configuration](#Usage-and-Configuration)
-- [Roadmap](#Roadmap)
+- [Usage and Configuration](#-Usage-and-Configuration)
+- [Roadmap](#-Roadmap)
 - [How to Contribute](#-how-to-contribute)
 
 ## 🚀 Description and Objective
