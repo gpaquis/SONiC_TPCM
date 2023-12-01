@@ -30,7 +30,7 @@ def read_config():
           if each_key == "docker-name":
               tpcmlist.update({each_section : each_val})
     print (f'{tpcmlist}')
-    myanswer = input('Enter TPCM id to install (ex: TPCM1) or ALL:')
+    myanswer = input('Enter TPCM id (ex: TPCM1) or ALL:')
     if myanswer.lower() != "all":
      tpcmreturn.append(myanswer.upper())
      #print (f'install: {myanswer}')
@@ -75,7 +75,7 @@ def tpcm_list(remote_sw):
         myreturn = mystatus["openconfig-tpcm:output"]["status-detail"]
         return myreturn
 
-def tpcm_remove(remote_sw) -> str:
+def tpcm_remove(remote_sw,remove_container) -> str:
     """
         Remove a TPCM installed
         Get value from the remote_tpcm.conf
@@ -85,10 +85,12 @@ def tpcm_remove(remote_sw) -> str:
     user_name = remote_sw['sonic_username']
     password = remote_sw['sonic_password']
 
+    mycontainer = remove_container
+
     config = configparser.ConfigParser()
     config.read('remote_tpcm.conf')
 
-    docker_name = config['TPCM1']['docker-name']
+    docker_name = config[f"{mycontainer}"]['docker-name']
 
     request_data = {
         "openconfig-tpcm:input": {
@@ -116,7 +118,7 @@ def tpcm_remove(remote_sw) -> str:
         return response.content
 
 
-def tpcm_install(remote_sw,install_container:str) -> str:
+def tpcm_install(remote_sw,install_container) -> str:
     """
         Install TPCM
         Read from a config file, here the container install from DockerHUB
@@ -173,7 +175,7 @@ def tpcm_install(remote_sw,install_container:str) -> str:
 
 
 
-def tpcm_upgrade(switch_ip: str, user_name: str, password: str) -> str:
+def tpcm_upgrade(remote_sw,upgrade_container) -> str:
     """
         Upgrade TPCM
         Read from a config file, here the container install from DockerHUB
@@ -186,14 +188,20 @@ def tpcm_upgrade(switch_ip: str, user_name: str, password: str) -> str:
         Image-source must be set with "pull" if container is locate on the dockerhub, otherwise use http/https/usb/sftp/ssh
     """
 
+
+    switch_ip = remote_sw['switch_ip']
+    user_name = remote_sw['sonic_username']
+    password = remote_sw['sonic_password']
+    mycontainer = upgrade_container
+
     config = configparser.ConfigParser()
     config.read('remote_tpcm.conf')
 
-    docker_name = config['TPCM1']['docker-name']
-    image_source = config['TPCM1']['image-source']
-    image_name = config['TPCM1']['image-name']
-    tpcm_args = config['TPCM1']['args']
-    skip_data = config['TPCM1']['skip-data-migration']
+    docker_name = config[f"{mycontainer}"]['docker-name']
+    image_source = config[f"{mycontainer}"]['image-source']
+    image_name = config[f"{mycontainer}"]['image-name']
+    tpcm_args = config[f"{mycontainer}"]['args']
+    skip_data = config[f"{mycontainer}"]['skip-data-migration']
 
     request_data = {
         "openconfig-tpcm:input": {
@@ -255,12 +263,24 @@ def main():
          print(f'{result}')
 
        if action == "remove":
-        result = tpcm_remove(switch_ip=switch_ip, user_name=sonic_username, password=sonic_password)
-        print(f'{result}')
+        result = tpcm_list(remote_sw)
+        tablen = len(result)
+        for installed in result[1:tablen]:
+          print (f'upgradable container :\r\n {installed}')
+          myreturn_list = read_config()
+          for container in myreturn_list:
+            result = tpcm_remove(remote_sw, remove_container=container)
+            print(f'{result}')
 
        if action == "upgrade":
-        result = tpcm_upgrade(switch_ip=switch_ip, user_name=sonic_username, password=sonic_password)
-        print(f'{result}')
+        result = tpcm_list(remote_sw)
+        tablen = len(result)
+        for installed in result[1:tablen]:
+          print (f'Installed container :\r\n {installed}')
+          myreturn_list = read_config()
+          for container in myreturn_list:
+            result = tpcm_upgrade(remote_sw, upgrade_container=container)
+            print(f'{result}')
 
     else:
       print("IP address is not valid\r\nUse tpcm_remote.py -h for Help")
