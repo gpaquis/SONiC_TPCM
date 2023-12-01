@@ -21,6 +21,7 @@ This Repo contains a Python script for manipulate remotly TPCM (ThirdPartyContai
 
 The remote_tpcm script allow to deploy, remove and list container install on a Dell Enterprise SONiC. <br />
 This script is for purpose test only and explain howto deploy remotely, a container from a DockerHub Source.
+Allow to deploy more than one container at same time. <br />
 
 ## 📋 Requirements
 - Python 3.8.10 version minimum 
