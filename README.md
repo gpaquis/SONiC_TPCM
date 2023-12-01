@@ -52,8 +52,6 @@ See [Roadmap](#-Roadmap) for more details and next feature.
 ## 📅 Roadmap
 Add Update process for memory/storage assing to the TPCM <br />
 Add support for http/https/ssh/scp. <br />
-Allow to deploy more than one container at same time. <br />
-
 
 ## 👏 How to Contribute
 We welcome contributions to the project.
