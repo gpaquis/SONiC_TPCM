@@ -1,8 +1,8 @@
 # Remote TPCM tools for Dell Enterprise SONiC
 
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)](#-how-to-contribute)
-[![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://github.com/gpaquis/SONiC_TPCM/blob/main/License.md)
-[![GitHub issues](https://img.shields.io/github/issues/gpaquis/SONIC_TPCM)](https://github.com/gpaquis/SONiC_TPCM/issues)
+[![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://github.com/gpaquis/SONiC_TPCM_RESTAPI/blob/main/License.md)
+[![GitHub issues](https://img.shields.io/github/issues/gpaquis/SONIC_TPCM)](https://github.com/gpaquis/SONiC_TPCM_RESTAPI/issues)
 
 Built and maintained by [Gerald PAQUIS](https://github.com/gpaquis) and [Contributors](https://github.com/gpaquis/SONiC_TPCM/graphs/contributors)
 
