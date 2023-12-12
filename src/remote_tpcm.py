@@ -1,3 +1,14 @@
+"""
+Description: This script allow to deploy remotely a TPCM on a switch using Dell Enterprise SONiC
+Author: Gerald PAQUIS
+Date Created: October 2023
+Date Modified: December, 2023
+Version: 1.1
+Python Version: 3.8.10
+Dependencies: none
+License: GPL-3.0 license
+"""
+
 import json
 import argparse
 import ast
